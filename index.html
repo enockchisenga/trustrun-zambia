@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRUSTRUN Zambia</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #111;
+}
+
+header {
+    background: #111;
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 5px solid #ff7a00;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ff7a00;
+}
+
+.tagline {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.hero {
+    background: white;
+    border-radius: 15px;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.hero h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #555;
+    line-height: 1.5;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 25px 0 12px;
+}
+
+button {
+    width: 100%;
+    border: none;
+    padding: 16px;
+    margin: 7px 0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary {
+    background: #ff7a00;
+    color: white;
+}
+
+.secondary {
+    background: #111;
+    color: white;
+}
+
+.blue {
+    background: #0755a5;
+    color: white;
+}
+
+.green {
+    background: #25D366;
+    color: white;
+}
+
+.location-button {
+    background: white;
+    color: #111;
+    border: 2px solid #ddd;
+    text-align: left;
+}
+
+.location-button:hover {
+    border-color: #ff7a00;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 14px;
+    margin: 7px 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+.back {
+    background: #ddd;
+    color: #111;
+}
+
+.price {
+    color: #ff7a00;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    color: #777;
+    font-size: 13px;
+}
+
+.success {
+    background: #e8f8ee;
+    border-left: 5px solid #25D366;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.whatsapp-number {
+    font-weight: bold;
+    color: #0755a5;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">TRUS<span>TRUN</span> ZAMBIA</div>
+    <div class="tagline">
+        Making Zambia sourcing, delivery and shopping easier, accessible and reliable.
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- HOME -->
+    <section id="home">
+
+        <div class="hero">
+            <h1>Need a parcel collected from Lusaka?</h1>
+            <p>
+                We collect parcels from sellers, shops and markets in Lusaka
+                and help get them to your preferred bus station or courier.
+            </p>
+
+            <button class="primary" onclick="showCollection()">
+                REQUEST COLLECTION
+            </button>
+        </div>
+
+        <div class="section-title">Our Services</div>
+
+        <button class="secondary" onclick="showService('verify')">
+            🔎 VERIFY A SELLER
+        </button>
+
+        <button class="secondary" onclick="showService('source')">
+            🛍️ SOURCE A PRODUCT
+        </button>
+
+        <button class="secondary" onclick="showService('shop')">
+            🛒 SHOP FOR ME
+        </button>
+
+        <button class="blue" onclick="showService('delivery')">
+            🚴 DELIVERY
+        </button>
+
+        <div class="section-title">Why TRUSTRUN?</div>
+
+        <div class="card">
+            <b>✓ Seller Verification</b>
+            <p>Reduce the risk of sending money to the wrong seller.</p>
+        </div>
+
+        <div class="card">
+            <b>✓ Lusaka Collection</b>
+            <p>We can collect from different shops and markets around Lusaka.</p>
+        </div>
+
+        <div class="card">
+            <b>✓ Simple Communication</b>
+            <p>Tell us what you need and continue the conversation through WhatsApp.</p>
+        </div>
+
+    </section>
+
+
+    <!-- COLLECTION -->
+    <section id="collection" class="hidden">
+
+        <div class="card">
+
+            <h2>Request Collection</h2>
+            <p style="margin:10px 0 20px;">
+                Where should we collect your parcel from?
+            </p>
+
+            <button class="location-button" onclick="selectLocation('Carousel Mall')">
+                📍 Carousel Mall
+            </button>
+
+            <button class="location-button" onclick="selectLocation('Kamwala Market')">
+                📍 Kamwala Market
+            </button>
+
+            <button class="location-button" onclick="selectLocation('Soweto Market')">
+                📍 Soweto Market
+            </button>
+
+            <button class="location-button" onclick="selectLocation('Town Centre')">
+                📍 Town Centre
+            </button>
+
+            <button class="location-button" onclick="selectLocation('COMESA')">
+                📍 COMESA
+            </button>
+
+            <button class="location-button" onclick="selectLocation('City Market')">
+                📍 City Market
+            </button>
+
+            <button class="location-button" onclick="selectLocation('Other Location')">
+                📍 Other Location
+            </button>
+
+            <button class="back" onclick="goHome()">
+                ← BACK
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- COLLECTION FORM -->
+    <section id="collectionForm" class="hidden">
+
+        <div class="card">
+
+            <h2>Collection Details</h2>
+
+            <div class="success">
+                Collection location:
+                <strong id="selectedLocation"></strong>
+            </div>
+
+            <label>Seller's Name</label>
+            <input id="sellerName" type="text" placeholder="Enter seller's name">
+
+            <label>Seller's Phone Number</label>
+            <input id="sellerPhone" type="tel" placeholder="Enter seller's phone">
+
+            <label>What are you buying?</label>
+            <input id="item" type="text" placeholder="Example: Shoes, phone, clothes">
+
+            <label>Where should we send the parcel?</label>
+            <input id="destination" type="text"
+                   placeholder="Example: Intercity Bus Station / Courier">
+
+            <label>Your Name</label>
+            <input id="customerName" type="text" placeholder="Enter your name">
+
+            <label>Your Phone Number</label>
+            <input id="customerPhone" type="tel" placeholder="Enter your phone">
+
+            <label>Additional Instructions</label>
+            <textarea id="instructions"
+                      placeholder="Anything else we should know?"></textarea>
+
+            <button class="green" onclick="sendCollectionWhatsApp()">
+                SEND REQUEST ON WHATSAPP
+            </button>
+
+            <button class="back" onclick="showCollection()">
+                ← BACK
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICE PAGE -->
+    <section id="servicePage" class="hidden">
+
+        <div class="card">
+
+            <h2 id="serviceTitle"></h2>
+
+            <p id="serviceDescription"
+               style="line-height:1.6; margin:15px 0;">
+            </p>
+
+            <p id="servicePrice" class="price"></p>
+
+            <button class="green" onclick="openWhatsApp()">
+                CONTACT US ON WHATSAPP
+            </button>
+
+            <button class="back" onclick="goHome()">
+                ← BACK
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<footer>
+    <b>TRUSTRUN ZAMBIA</b><br>
+    Making sourcing, delivery and shopping easier.<br><br>
+    WhatsApp: <span class="whatsapp-number">0979998988</span>
+</footer>
+
+
+<script>
+
+const whatsappNumber = "260979998988";
+
+let selectedLocation = "";
+
+
+/* HOME */
+function goHome() {
+    hideAll();
+
+    document.getElementById("home").classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* COLLECTION */
+function showCollection() {
+
+    hideAll();
+
+    document.getElementById("collection").classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* LOCATION */
+function selectLocation(location) {
+
+    selectedLocation = location;
+
+    hideAll();
+
+    document.getElementById("collectionForm").classList.remove("hidden");
+
+    document.getElementById("selectedLocation").innerText = location;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* SERVICE */
+function showService(service) {
+
+    hideAll();
+
+    const title = document.getElementById("serviceTitle");
+    const description = document.getElementById("serviceDescription");
+    const price = document.getElementById("servicePrice");
+
+    if (service === "verify") {
+
+        title.innerText = "🔎 Verify a Seller";
+
+        description.innerText =
+        "Buying something online? We can help verify the seller or product before you send your money.";
+
+        price.innerText =
+        "Verification from K25";
+
+    }
+
+    if (service === "source") {
+
+        title.innerText = "🛍️ Source a Product";
+
+        description.innerText =
+        "Looking for something in Lusaka? Tell us what you need and we can help you find it.";
+
+        price.innerText =
+        "Product sourcing from K50";
+
+    }
+
+    if (service === "shop") {
+
+        title.innerText = "🛒 Shop For Me";
+
+        description.innerText =
+        "Can't get to the shop yourself? We can purchase items on your behalf and arrange delivery.";
+
+        price.innerText =
+        "Shopping on your behalf from K35";
+
+    }
+
+    if (service === "delivery") {
+
+        title.innerText = "🚴 Delivery";
+
+        description.innerText =
+        "Need something collected and delivered? Tell us where the parcel is and where you want it delivered.";
+
+        price.innerText =
+        "Delivery from K25";
+
+    }
+
+    document.getElementById("servicePage").classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* WHATSAPP GENERAL */
+function openWhatsApp() {
+
+    const message =
+        "Hello TRUSTRUN ZAMBIA, I would like to know more about your services.";
+
+    const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.location.href = url;
+}
+
+
+/* COLLECTION WHATSAPP */
+function sendCollectionWhatsApp() {
+
+    const sellerName =
+        document.getElementById("sellerName").value;
+
+    const sellerPhone =
+        document.getElementById("sellerPhone").value;
+
+    const item =
+        document.getElementById("item").value;
+
+    const destination =
+        document.getElementById("destination").value;
+
+    const customerName =
+        document.getElementById("customerName").value;
+
+    const customerPhone =
+        document.getElementById("customerPhone").value;
+
+    const instructions =
+        document.getElementById("instructions").value;
+
+
+    if (
+        sellerName === "" ||
+        sellerPhone === "" ||
+        item === "" ||
+        destination === "" ||
+        customerName === "" ||
+        customerPhone === ""
+    ) {
+
+        alert("Please fill in all the required details.");
+
+        return;
+    }
+
+
+    const message =
+`Hello TRUSTRUN ZAMBIA 👋
+
+I would like to request a parcel collection.
+
+📍 Collection location:
+${selectedLocation}
+
+👤 Seller's name:
+${sellerName}
+
+📞 Seller's phone:
+${sellerPhone}
+
+📦 Item:
+${item}
+
+🚌 Send parcel to:
+${destination}
+
+👤 My name:
+${customerName}
+
+📞 My phone:
+${customerPhone}
+
+📝 Additional instructions:
+${instructions}
+
+Please let me know the collection and delivery charges. Thank you.`;
+
+
+    const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.location.href = url;
+}
+
+
+/* HIDE ALL SCREENS */
+function hideAll() {
+
+    document.getElementById("home").classList.add("hidden");
+
+    document.getElementById("collection").classList.add("hidden");
+
+    document.getElementById("collectionForm").classList.add("hidden");
+
+    document.getElementById("servicePage").classList.add("hidden");
+}
+
+</script>
+
+</body>
+</html>
